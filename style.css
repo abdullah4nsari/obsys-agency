@@ -1,3 +1,28 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('font/plain-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('font/plain-regular-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('font/silkserif-lightitalic-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('font/silkserif-regularitalic-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 *{
     margin: 0;padding: 0;
     box-sizing: border-box;
@@ -7,6 +32,19 @@
 html,body{
     height: 100%;
     width: 100%;
+    cursor: none;
+}
+#crsr{
+    height: 2.3rem;
+    width: 2.3rem;
+    background-color: transparent;
+    border-radius: 50%;
+    z-index: 999;
+    position: fixed;
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 0 0 0.6px rgba(255, 255, 255,0.8);
+    pointer-events: all;
+    mix-blend-mode: difference;
 }
 #loader{
     height: 100%;
@@ -93,4 +131,37 @@ html,body{
     height: 100vh;
     width: 100%;
     background-color: #151515;
+}
+#nav{
+    font-size: 2.1vh;
+    display: flex;
+    width: 100%;
+    /* padding: 8vh 5.5vw 8vh 0; */
+}
+#nav-part1{
+    padding: 3.5vw 0 8vw 5.5vw;
+    width: 28%;
+}
+#nav-part2{
+    padding: 3.5vw 5.5vw 8vw 0;
+    display: flex;
+    width: 72%;
+    justify-content: space-between;
+}
+#header-title p{
+    line-height: 2.1vh;
+}
+#nav #nav-part2 ul{
+    display: flex;
+    list-style: none;
+    gap: 2.3vw;
+}
+#hero {
+    width: 72%;
+    margin-left: 28%;
+}
+#hero h1{
+    font-size: 7.2vw;
+    font-weight: 700;
+    line-height: 7.2vw;
 }
