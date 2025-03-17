@@ -35,16 +35,17 @@ html,body{
     cursor: none;
 }
 #crsr{
-    height: 2.3rem;
-    width: 2.3rem;
+    height: 2.1rem;
+    width: 2.1rem;
     background-color: transparent;
     border-radius: 50%;
     z-index: 999;
     position: fixed;
     transition: transform 0.1s ease-out;
     box-shadow: 0 0 0 0.6px rgba(255, 255, 255,0.8);
-    pointer-events: all;
+    pointer-events: none;
     mix-blend-mode: difference;
+    transition: scale 0.2s ease;
 }
 #loader{
     height: 100%;
@@ -156,12 +157,82 @@ html,body{
     list-style: none;
     gap: 2.3vw;
 }
-#hero {
+#hero-section{
+    margin-top: 2.1vw;
+}
+.hero {
     width: 72%;
     margin-left: 28%;
+    overflow: hidden;
+    height:fit-content;
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+    /* z-index: 9999; */
 }
-#hero h1{
+
+.hero h1{
     font-size: 7.2vw;
     font-weight: 700;
     line-height: 7.2vw;
+}
+#hero3 h3{
+    font-size: 6.2vw;
+}
+.hero h2 {
+    font-size: 7.2vw;
+    font-weight: 700;
+    line-height: 7.2vw;
+    text-decoration: underline;
+    color: #fff; 
+    -webkit-text-stroke: 0px;
+    transition: -webkit-text-stroke 0.3s ease, color 0.3s ease; /* Control only these */
+}
+
+.hero h2:hover {
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+    text-decoration: none;
+    font-weight: 500;
+}
+#page02{
+    height: 100vh;
+    width: 100%;
+    background-color: #151515;
+    padding-top: 20vh;
+    position: relative;
+}
+#video-container{
+    height: 70vh;
+    width: 72%;
+    position: relative;
+    left:28%;
+}
+#video-container img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+    object-fit: cover;
+}
+#video-container video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+#video-cursor{
+    height: 8.5vw;
+    width: 8.5vw;
+    background-color: #FFA63D;
+    position: absolute;
+    z-index: 999;
+    border-radius: 50%;
+    top: -10%;
+    left: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#video-cursor i{
+    font-size: 2vw;
 }

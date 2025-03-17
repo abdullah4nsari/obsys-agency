@@ -1,3 +1,4 @@
+let crsr=document.querySelector('#crsr');
 function loadingAnimation() {
   var t1 = gsap.timeline();
 t1.from(".line h1,.line h2", {
@@ -31,16 +32,26 @@ t1.to("#loader",{
     // delay:3
 })
 t1.from("#page01",{
-    // delay:0.2,
+    delay:0.2,
     y:1600,
     opacity:0,
 })
 t1.to("#loader",{
     display:"none",
 })
+t1.from("#nav",{
+  opacity:0,
+  y:-120,
+})
+t1.from("#hero1 h1,#hero2 h1,#hero3 h2,#hero3 h3,#hero4 h1",{
+  y:120,
+  stagger:0.1,
+  ease: "power2.out" ,
+})
 }
-loadingAnimation()
-let crsr=document.querySelector('#crsr');
+
+
+function cursorAnimation() {
 document.addEventListener("mousemove",(evt)=>{
   // Get the cursor's dimensions
   let crsrWidth = crsr.offsetWidth / 2;
@@ -48,3 +59,7 @@ document.addEventListener("mousemove",(evt)=>{
   crsr.style.left=evt.clientX-crsrWidth+"px";
   crsr.style.top=evt.clientY-crsrHeight+"px";
 })
+Shery.makeMagnet("#nav-part2 ul li", {});
+}
+loadingAnimation();
+cursorAnimation();
