@@ -1,4 +1,41 @@
 let crsr=document.querySelector('#crsr');
+let videoContainer=document.querySelector("#video-container");
+let video=document.querySelector("#video-container video");
+let flag=false;
+  videoContainer.addEventListener('mousemove',(dets)=>{
+    crsr.style.scale=0;
+    const rect = videoContainer.getBoundingClientRect();
+    gsap.to("#video-cursor",{
+      left:dets.x-rect.left,
+      top:dets.y-rect.top
+    })
+  })
+videoContainer.addEventListener('mouseleave',()=>{
+  crsr.style.scale=1;
+  gsap.to("#video-cursor",{
+    left:"70%",
+    top:"-10%"
+  })
+})
+videoContainer.addEventListener('click',()=>{
+  if(!flag){
+      video.play();
+    video.style.opacity=1;
+    document.querySelector("#video-cursor").innerHTML=`<i class="ri-pause-line"></i>`;
+    gsap.to("#video-cursor",{
+      scale:0.7,
+  })
+  }else{
+      video.pause();
+    video.style.opacity=0;
+    document.querySelector("#video-cursor").innerHTML=`<i class="ri-play-fill"></i>`;
+    gsap.to("#video-cursor",{
+      scale:1,
+  })
+  }
+  }
+})
+
 function locomotiveScroll() {
   gsap.registerPlugin(ScrollTrigger);
 

@@ -223,6 +223,7 @@ html,body{
     width: 100%;
     background-color: #151515;
     position: relative;
+    margin-bottom: 25vw;
 }
 #video-container{
     height: 70vh;
@@ -263,7 +264,7 @@ html,body{
     min-height: 100vh;
     width: 100%;
     background-color:#151515 ;
-    margin-bottom: 20vh;
+    margin-bottom: 20vw;
     padding: 17vh 2vw;
 }
 #page03-heading{
@@ -296,30 +297,181 @@ html,body{
     margin-bottom: 7vh;
 }
 #image-div-container{
-    background-color: #FFA63D;
-    padding: 1vw;
+    /* background-color: #FFA63D; */
+    padding: 2vw 3vw;
     position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 2%;margin-bottom:30vw;
+}
+.showcase-parent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 1.7rem;
+    width: fit-content;
+    height: fit-content;
+}
+.showcase-element{
+    width: 30vw;
+    /* height: 55vw; */
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+    position: relative;
+}
+
+#showcase-element1{
+    /* height: 43vw; */
+    width: 23vw;
+}
+#showcase-element3{
+    margin-top: 10%;
+}
+#showcase-element5{
+    /* height: 43vw; */
+    width: 23vw;
+    
+}
+#showcase-element5-parent{
+    margin-top: -10%;
+}
+#showcase-element6{
+    margin-top: 10%;
+}
+.showcase-parent h3{
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+.showcase-element .element-discription{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.showcase-element .element-discription p{
+    width: 55%;
+    font-size: 1rem !important;
+}
+.showcase-element .element-discription h6{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.underline-div{
+    height: 1px;
+    background-color: #fff;
     width: 100%;
 }
 .image-div{
-    height: 33vw;
-    width: 24vw;
+    height: 72%;
+    width: 100%;
     background-color: #3F7DF4;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 .image-div img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit:contain;
     object-position: center;
+    
+}
+.circles{
+    position: relative;
+}
+.image-circle-div{
+    position: relative;
+}
+#img-circle01{
+    width: 30vw;
+}
+#img-circle02{
+    width: 23vw;
+}
+#img-circle03{
+    width: 30vw;
+}
+#image-circle-div1{
+    height: 23vw;
+    width: 23vw;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 30%;
+    margin-top: 95%;
+}
+.image-circle-div svg{
+    height:30%;
+}
+#image-circle-div2{
+    height: 23vw;
+    width: 23vw;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+#image-circle-div2 svg{
+    height:30%;
+    transform: rotate(-45deg);
+}
+#image-circle-div3{
+    height: 23vw;
+    width: 23vw;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 24%;
+    margin-top: 110%;
+}
+#image-circle-div3 svg{
+    height:30%;
+    transform: rotate(-90deg);
+}
+.circle-inside-text{
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Center and hide initially */
+    border-radius: 50%;
+    padding: 10%;
+    transition: transform 0.3s ease-in-out;
+}
+.circle-inside-text p{
+    color: black;
+    opacity: 0;
+}
+.image-circle-div:hover .circle-inside-text{
+    transform: translate(-50%, -50%) scale(1);
+}
+.image-circle-div:hover .circle-inside-text p{
+    opacity: 1;
 }
 #page04{
     min-height: 100vh;
     width: 100%;
     position: relative;
-    padding-top: 5vh;
+    padding-top: 20vh;
     background-color: #151515;
+        
 }
 #page04-container{
     position: relative;
