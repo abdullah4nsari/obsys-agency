@@ -2,6 +2,9 @@ let crsr=document.querySelector('#crsr');
 let videoContainer=document.querySelector("#video-container");
 let video=document.querySelector("#video-container video");
 let flag=false;
+let imgFlag = document.querySelector("#flag");
+let hero3=document.querySelector("#hero3");
+function videoContainerAnimation() {
   videoContainer.addEventListener('mousemove',(dets)=>{
     crsr.style.scale=0;
     const rect = videoContainer.getBoundingClientRect();
@@ -24,7 +27,8 @@ videoContainer.addEventListener('click',()=>{
     document.querySelector("#video-cursor").innerHTML=`<i class="ri-pause-line"></i>`;
     gsap.to("#video-cursor",{
       scale:0.7,
-  })
+    })
+    flag=true;
   }else{
       video.pause();
     video.style.opacity=0;
@@ -32,10 +36,11 @@ videoContainer.addEventListener('click',()=>{
     gsap.to("#video-cursor",{
       scale:1,
   })
-  }
+  flag=false;
   }
 })
-
+  
+}
 function locomotiveScroll() {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -149,7 +154,27 @@ function sheryAnime(){
     preset: "./presets/wigglewobble.json",
   });
   }
+
+document.addEventListener("mousemove",(dets)=>{
+  gsap.to("#flag",{
+    x:dets.x,
+    y:dets.y,
+  })
+})
+hero3.addEventListener("mouseenter",()=>{
+    gsap.to("#flag",{
+      opacity:1,
+      scale:1
+    })
+})
+hero3.addEventListener("mouseleave",()=>{
+  gsap.to("#flag",{
+    scale:0,
+    opacity:0
+  })
+})
 loadingAnimation();
 cursorAnimation();
 locomotiveScroll();
 sheryAnime();
+videoContainerAnimation();
