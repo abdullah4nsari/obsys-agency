@@ -1,25 +1,25 @@
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('font/plain-light-webfont.ttf') format('woff2');
+    src: url('font/plain-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('font/plain-regular-webfont.ttf') format('woff2');
+    src: url('font/plain-regular-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('font/silkserif-lightitalic-webfont.ttf') format('woff2');
+    src: url('font/silkserif-lightitalic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('font/silkserif-regularitalic-webfont.ttf') format('woff2');
+    src: url('font/silkserif-regularitalic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
