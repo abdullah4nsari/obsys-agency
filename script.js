@@ -107,13 +107,13 @@ function loadingAnimation() {
 t1.from(".line h1,.line h2", {
   y: 150,
   opacity: 0,
-  // stagger: 0.4,
-  // duration: 0.6,
-  // delay: 0.5,
+  stagger: 0.4,
+  duration: 0.6,
+  delay: 0.5,
 });
 // t1.from('.line h2',{
-//     animaationName:'nowAnime',
-//     y:150,
+//     // animaationName:'nowAnime',
+//     // y:150,
 // })
 t1.from("#loading-part1", {
   opacity: 0,
@@ -126,16 +126,16 @@ t1.from("#loading-part1", {
         clearInterval(cntID);
       }
       elem.innerHTML = count;
-    }, /*30*/1);
+    }, 30);
   },
 });
 t1.to("#loader",{
     opacity:0,
     duration:0.4,
-    // delay:3
+    delay:3
 })
 t1.from("#main",{
-    // delay:0.2,
+    delay:0.2,
     y:1600,
     opacity:0,
 })
@@ -200,34 +200,128 @@ hero3.addEventListener("mouseleave",()=>{
     opacity:0
   })
 })
+// function pageAnimations() {
+//  let t2=gsap.timeline();
+//   t2.from("#page03-heading", {
+//     opacity: 0,
+//     y: 100,
+//     scrollTrigger: { // `scrollTrigger` should be inside this object
+//       trigger: "#page03-heading",
+//       scroller: "#main",
+//       // markers: true,  // Remove in production
+//       start: "top 130%", // Adjusted for better visibility
+//       end: "top 110%", // Longer animation duration
+//       scrub: 1
+//     }
+//   });
+//   // t2.from("#image-div-container", {
+//   //   opacity: 0,
+//   //   y: 120,
+//   //   stagger:0.2,
+//   //   scrollTrigger: { // `scrollTrigger` should be inside this object
+//   //     trigger: "#image-div-container",
+//   //     scroller: "#main",
+//   //     // markers: true,  // Remove in production
+//   //     start: "top 120%", // Adjusted for better visibility
+//   //     end: "top 80%", // Longer animation duration
+//   //     scrub: 1
+//   //   }
+//   // });
+//   ScrollTrigger.matchMedia({
+//     // Desktop and large screens
+//     "(min-width: 768px)": function () {
+//       const t2 = gsap.timeline();
+//       t2.from("#image-div-container", {
+//         opacity: 0,
+//         y: 120,
+//         stagger: 0.2,
+//         scrollTrigger: {
+//           trigger: "#image-div-container",
+//           scroller: "#main",
+//           start: "top 120%",
+//           end: "top 80%",
+//           scrub: 1
+//         }
+//       });
+//     },
+  
+//     // Mobile and small screens
+//     "(max-width: 767px)": function () {
+//       const t2 = gsap.timeline();
+//       t2.from("#image-div-container", {
+//         opacity: 0.5,       // Maybe different opacity for mobile
+//         y: 50,              // Smaller Y movement
+//         stagger: 0.1,
+//         scrollTrigger: {
+//           trigger: "#image-div-container",
+//           scroller: "#main",
+//           markers:true,
+//           start: "top 90%", // Adjusted for mobile
+//           end: "top 70%",
+//           scrub: 1
+//         }
+//       });
+//     }
+//   });
+  
+// }
 function pageAnimations() {
- let t2=gsap.timeline();
-  t2.from("#page03-heading", {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Universal animation for page03-heading (applies to all screen sizes)
+  let headingTimeline = gsap.timeline();
+  headingTimeline.from("#page03-heading", {
     opacity: 0,
     y: 100,
-    scrollTrigger: { // `scrollTrigger` should be inside this object
+    scrollTrigger: {
       trigger: "#page03-heading",
       scroller: "#main",
-      // markers: true,  // Remove in production
-      start: "top 130%", // Adjusted for better visibility
-      end: "top 110%", // Longer animation duration
+      // markers: true, // for debugging
+      start: "top 130%",
+      end: "top 110%",
       scrub: 1
     }
   });
-  t2.from("#image-div-container", {
-    opacity: 0,
-    y: 120,
-    stagger:0.2,
-    scrollTrigger: { // `scrollTrigger` should be inside this object
-      trigger: "#image-div-container",
-      scroller: "#main",
-      // markers: true,  // Remove in production
-      start: "top 120%", // Adjusted for better visibility
-      end: "top 80%", // Longer animation duration
-      scrub: 1
+
+  // Responsive animations for image-div-container
+  ScrollTrigger.matchMedia({
+    // Desktop
+    "(min-width: 768px)": function () {
+      let desktopTimeline = gsap.timeline();
+      desktopTimeline.from("#image-div-container", {
+        opacity: 0,
+        y: 120,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: "#image-div-container",
+          scroller: "#main",
+          start: "top 120%",
+          end: "top 80%",
+          scrub: 1
+        }
+      });
+    },
+
+    // Mobile
+    "(max-width: 767px)": function () {
+      let mobileTimeline = gsap.timeline();
+      mobileTimeline.from("#image-div-container", {
+        opacity: 0.5,
+        y: 50,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: "#image-div-container",
+          scroller: "#main",
+          // markers: true, // you can remove this in production
+          start: "top 90%",
+          end: "top 70%",
+          // scrub: 1
+        }
+      });
     }
   });
 }
+
 loadingAnimation();
 cursorAnimation();
 locomotiveScroll2();
