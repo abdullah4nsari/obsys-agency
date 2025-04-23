@@ -900,7 +900,7 @@ html,body{
         position: relative;
         left:0%;
         top: 8%;
-        background-image: url(/Assets/Showreel-2022-preview-1.jpg);
+        background-image: url(Assets/Showreel-2022-preview-1.jpg);
         background-size: cover;
         background-position:  center center;
     }
