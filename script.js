@@ -77,6 +77,31 @@ ScrollTrigger.refresh();
 
   
 }
+function locomotiveScroll2() {
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const locoScroll = new LocomotiveScroll({
+      el: document.querySelector("#main"),
+      smooth: true
+    });
+  
+    locoScroll.on("scroll", ScrollTrigger.update);
+  
+    ScrollTrigger.scrollerProxy("#main", {
+      scrollTop(value) {
+        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+      },
+      pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+    });
+  
+    // 🔥 Refresh ScrollTrigger after Locomotive has initialized
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.refresh();
+  
+}
 function loadingAnimation() {
   var t1 = gsap.timeline();
 t1.from(".line h1,.line h2", {
@@ -130,8 +155,10 @@ t1.from("#hero1 h1,#hero2 h1,#hero3 h2,#hero3 h3,#hero4 h1",{
   stagger:0.1,
   ease: "power2.out" ,
 },"-=0.2")
-
-
+t1.from("#page02",{
+  y:120,
+  opacity:0
+})
 }
 function cursorAnimation() {
 document.addEventListener("mousemove",(evt)=>{
@@ -173,8 +200,38 @@ hero3.addEventListener("mouseleave",()=>{
     opacity:0
   })
 })
+function pageAnimations() {
+ let t2=gsap.timeline();
+  t2.from("#page03-heading", {
+    opacity: 0,
+    y: 100,
+    scrollTrigger: { // `scrollTrigger` should be inside this object
+      trigger: "#page03-heading",
+      scroller: "#main",
+      // markers: true,  // Remove in production
+      start: "top 130%", // Adjusted for better visibility
+      end: "top 110%", // Longer animation duration
+      scrub: 1
+    }
+  });
+  t2.from("#image-div-container", {
+    opacity: 0,
+    y: 120,
+    stagger:0.2,
+    scrollTrigger: { // `scrollTrigger` should be inside this object
+      trigger: "#image-div-container",
+      scroller: "#main",
+      // markers: true,  // Remove in production
+      start: "top 120%", // Adjusted for better visibility
+      end: "top 80%", // Longer animation duration
+      scrub: 1
+    }
+  });
+}
 loadingAnimation();
 cursorAnimation();
-locomotiveScroll();
+locomotiveScroll2();
+// locomotiveScroll();
 sheryAnime();
 videoContainerAnimation();
+pageAnimations();
